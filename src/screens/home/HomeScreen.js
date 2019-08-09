@@ -1,9 +1,13 @@
 import React from 'react';
-import { Text, View, Button } from 'react-native';
+import { View, Button } from 'react-native';
+
+import ImageDetail from '../../components/ImageDetail';
 
 import styles from './HomeScreenStyles';
 
 const HomeScreen = ({ navigation: { navigate } }) => {
+
+  const images = [1,2,3];
 
   goTo = (routeName) => () => {
     navigate(routeName);
@@ -11,7 +15,7 @@ const HomeScreen = ({ navigation: { navigate } }) => {
 
   return (
     <View>
-      <Text style={styles.text}>HomeScreen</Text>
+      {images.map(img => <ImageDetail/>)}
       <Button
         onPress={goTo('List')}
         title="Go to List"></Button>
